@@ -32,7 +32,7 @@ const Resume = () => {
             <div className="w-full flex justify-end">
                 <button id="btn-print" className="mt-5 mr-7 bg-green-600 rounded-md text-white p-2" onClick={downloadPDF}>Download PDF</button>
             </div>
-            <div id="content" className="w-[700px] h-full bg-white p-10 my-5 mx-7 shadow-[0_3px_10px_rgb(0,0,0,0.2)]">
+            <div id="content" className="w-[700px] h-[800px] bg-white p-10 my-5 mx-7 shadow-[0_3px_10px_rgb(0,0,0,0.2)]">
                 <div>
                     {/* Basic Info */}
                     <p className="text-3xl font-bold">{data.firstname + " " + data.lastname}</p>
