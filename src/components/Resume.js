@@ -11,6 +11,10 @@ const Resume = () => {
     const experiences = useSelector(state => state.experienceSlice);
     const education = useSelector(state => state.educationSlice);
     const project = useSelector(state => state.projectSlice);
+    const extra = useSelector(state => state.extraSlice);
+    const skills = useSelector(state => state.skillsSlice);
+
+    console.log(extra);
 
     const downloadPDF = () => {
         html2canvas(document.querySelector('#content')).then((canvas) => {
@@ -70,6 +74,21 @@ const Resume = () => {
                         </p>
                     </div>
 
+                    {/* Skills */}
+                    <div className="mt-10">
+                        {skills.length > 0 ? <p className="font-bold text-blue-500">SKILLS</p> : null}
+                            <div className="mt-3 grid grid-cols-2 gap-2">
+                                {skills.map((e,index) => {
+                                    return (                        
+                                        <div key={index}>
+                                            <p className="font-bold"><span className=" mr-1">*</span> {e.skillTitle}</p>
+                                        </div>
+                                    );
+                                })}
+                            </div>
+                    </div>
+                    
+
                     {/* Experience */}
                     <div className="mt-10">
                         {experiences.length > 0 ? <p className="font-bold text-blue-500">EXPERIENCE</p> : null}
@@ -108,6 +127,19 @@ const Resume = () => {
                                 <div className="mt-3">
                                     <p className="font-bold">{e.projectName}</p>
                                     <a href={e.link} className="mt-2 underline cursor-pointer">Link</a>
+                                    <p className="mt-2">{e.description}</p>
+                                </div>
+                            );
+                        })}
+                    </div>
+
+                    {/* Additional */}
+                    <div className="mt-10">
+                        {extra.map((e) => {
+                            return (
+                                <div className="mt-3">
+                                    {extra.length > 0 ? <p className="font-bold text-blue-500">{e.sectionTitle}</p> : null}  
+                                    <p className="font-bold">{e.title}</p>
                                     <p className="mt-2">{e.description}</p>
                                 </div>
                             );

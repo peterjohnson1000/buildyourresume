@@ -91,7 +91,7 @@ const ExperienceInputData = () => {
                     <input type="text" name="location" required placeholder="Location" className="mb-2 border-2 rounded-md p-1"/>
                     <input type="text" name="date" placeholder="Date" className="mb-2 border-2 rounded-md p-1"/>
                     <textarea name="description" placeholder="Description" className="mb-2 border-2 rounded-md p-1"/>
-                    <button type="submit" className="bg-red-700 text-white">Add Experience</button>
+                    <button type="submit" className="bg-red-700 text-white rounded-md">Add Experience</button>
                     {/* {warning ? <p>Please enter Company name and </p> : null} */}
                 </form>
                 <div>
@@ -106,8 +106,8 @@ const ExperienceInputData = () => {
                                                 <input className="mb-2 border-2 rounded-md p-1" type="text" value={editedExperiences[index]?.location || ''} placeholder="Location" onChange={(e) => handleEditChange(e, index, 'location')} />
                                                 <input className="mb-2 border-2 rounded-md p-1" type="text" value={editedExperiences[index]?.date || ''} placeholder="Date" onChange={(e) => handleEditChange(e, index, 'date')} />
                                                 <input className="mb-2 border-2 rounded-md p-1" type="text" value={editedExperiences[index]?.description || ''} placeholder="Description" onChange={(e) => handleEditChange(e, index, 'description')} />
-                                                <button className="bg-green-600 text-white" onClick={() => handleSaveChanges(index)}>Save Changes</button>
-                                                <button className="bg-red-700 text-white px-2 " onClick={() => handleDeleteClick(index)}>Remove Experience</button>
+                                                <button className="bg-green-600 text-white rounded-md mb-1" onClick={() => handleSaveChanges(index)}>Save Changes</button>
+                                                <button className="bg-red-700 text-white px-2 rounded-md" onClick={() => handleDeleteClick(index)}>Remove Experience</button>
                                             </div>
                                         ) : (
                                             <div className="text-black">
@@ -115,7 +115,7 @@ const ExperienceInputData = () => {
                                                 <p>Location: {experience.location}</p>
                                                 <p>Date: {experience.date}</p>
                                                 <p>Description: {experience.description}</p>
-                                                <button className="bg-red-700 text-white p-1 mt-2 mb-3" onClick={() => handleEditClick(index)}>Edit</button>
+                                                <button className="bg-red-700 text-white p-1 mt-2 mb-3 rounded-md" onClick={() => handleEditClick(index)}>Edit</button>
                                             </div>
                                         )}
                                     </div>

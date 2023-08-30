@@ -78,7 +78,7 @@ const ProjectInput = () => {
                     <input type="text" name="projectName" required placeholder="Project Name" className="mb-2 border-2 rounded-md p-1"/>
                     <input type="text" name="link" required placeholder="link" className="mb-2 border-2 rounded-md p-1"/>
                     <textarea name="description" placeholder="description" className="mb-2 border-2 rounded-md p-1"/>
-                    <button type="submit" className="bg-red-700 text-white">Add Project</button>
+                    <button type="submit" className="bg-red-700 text-white rounded-md">Add Project</button>
                     {/* {warning ? <p>Please enter Company name and </p> : null} */}
                 </form>
                 <div>
@@ -92,15 +92,15 @@ const ProjectInput = () => {
                                                 <input className="mb-2 border-2 rounded-md p-1" type="text" value={editedProjects[index]?.projectName || ''} placeholder="Project Name" onChange={(e) => handleEditChange(e, index, 'projectName')} />
                                                 <input className="mb-2 border-2 rounded-md p-1" type="text" value={editedProjects[index]?.link || ''} placeholder="link" onChange={(e) => handleEditChange(e, index, 'link')} />
                                                 <input className="mb-2 border-2 rounded-md p-1" type="text" value={editedProjects[index]?.description || ''} placeholder="description" onChange={(e) => handleEditChange(e, index, 'description')} />
-                                                <button className="bg-green-600 text-white" onClick={() => handleSaveChanges(index)}>Save Changes</button>
-                                                <button className="bg-red-500 text-white px-2 " onClick={() => handleDeleteClick(index)}>Remove Project</button>
+                                                <button className="bg-green-600 text-white rounded-md mb-1" onClick={() => handleSaveChanges(index)}>Save Changes</button>
+                                                <button className="bg-red-500 text-white px-2 rounded-md" onClick={() => handleDeleteClick(index)}>Remove Project</button>
                                             </div>
                                         ) : (
                                             <div className="text-black">
                                                 <p>Project Name: {project.projectName}</p>
                                                 <p>Link: {project.link}</p>
                                                 <p>Description: {project.description}</p>
-                                                <button className="bg-red-700 text-white p-1 mt-2 mb-3" onClick={() => handleEditClick(index)}>Edit</button>
+                                                <button className="bg-red-700 text-white p-1 mt-2 mb-3 rounded-md" onClick={() => handleEditClick(index)}>Edit</button>
                                             </div>
                                         )}
                                     </div>
