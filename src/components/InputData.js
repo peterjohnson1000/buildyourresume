@@ -45,29 +45,58 @@ const InputData = () => {
   };
 
     return (
+        // mr-7
         <div className="bg-white w-[600px] rounded-md p-5 my-2 shadow-[0_35px_60px_-15px_rgba(0,0,0,0.3)]">
           <div onClick={toggleExpand} className="text-black flex items-center justify-between">
             <p className="">Basic Info</p>
             {expanded?<AiOutlineMinus className="text-2xl"/>:<AiOutlinePlus className="text-2xl"/>}
           </div>
             <Collapse isOpened={expanded}>
+              <div className="border-t-2 mt-2"></div>
               <div className="flex flex-col w-[300px] ml-10 pt-5">
                 <div className="flex">
+                  <div className="flex flex-col">
+                    <p className="font-light">First Name:</p>
                     <input type="text" placeholder="firstname" className="mb-2 border-2 rounded-md p-1" value={data?.firstname || ""} onChange={handleFirstNameChange} />
-                    <input type="text" placeholder="lastname" className="mb-2 ml-2 border-2 rounded-md p-1" value={data?.lastname || ""} onChange={handleLastNameChange} />
-                </div>
-                  <input type="text" placeholder="email" className="mb-2 border-2 rounded-md p-1" value={data?.email || ""} onChange={handleEmailChange} />
-                  <input type="number" placeholder="number" className="mb-2 border-2 rounded-md p-1" value={data?.number || ""} onChange={handleNumberChange} />
-                  <textarea type="text" placeholder="intro" className="mb-2 border-2 rounded-md p-1 h-[150px] w-[500px]" value={data?.intro || ""} onChange={handleIntroChange} />
+                  </div>
 
-                  <div onClick={toggleAdditionalExpand} className="text-black flex items-center justify-between my-5">
+                  <div className="flex flex-col">
+                    <p className="font-light ml-2">Last Name:</p>
+                    <input type="text" placeholder="lastname" className="mb-2 ml-2 border-2 rounded-md p-1" value={data?.lastname || ""} onChange={handleLastNameChange} />
+                  </div>
+                </div>
+
+                <div>
+                  <div>
+                    <p className="font-light">Email:</p>
+                    <input type="text" placeholder="email" className="mb-2 border-2 rounded-md p-1" value={data?.email || ""} onChange={handleEmailChange} />
+                  </div>
+                  <div>
+                    <p className="font-light">Phone Number:</p>
+                    <input type="number" placeholder="number" className="mb-2 border-2 rounded-md p-1" value={data?.number || ""} onChange={handleNumberChange} />
+                  </div>
+                  <div>
+                    <p className="font-light">Introduction:</p>
+                    <textarea type="text" placeholder="intro" className="mb-2 border-2 rounded-md p-1 h-[150px] w-[500px]" value={data?.intro || ""} onChange={handleIntroChange} />
+                  </div>
+                </div>
+
+
+                  <div onClick={toggleAdditionalExpand} className="text-black flex items-center justify-between mt-5">
                     <p>Additional Info</p>
                     {additionalExpanded?<AiOutlineMinus className="text-2xl"/>:<AiOutlinePlus className="text-2xl"/>}
                   </div>
                   <Collapse isOpened={additionalExpanded}>
-                    <div className="mt-2">
-                    <input type="text" placeholder="LinkedIn URL" className="mb-2 w-full border-2 rounded-md p-1" value={data?.linkedin || ""} onChange={handleLinkedinChange} />
-                    <input type="text" placeholder="Portfolio Website" className="mb-2 w-full border-2 rounded-md p-1" value={data?.website || ""} onChange={handleWebsiteChange} />
+                    <div className="border-t-2 mt-2 mb-5"></div>
+                    <div>
+                      <div>
+                        <p className="font-light">LinkedIn:</p>
+                        <input type="text" placeholder="LinkedIn URL" className="mb-2 w-full border-2 rounded-md p-1" value={data?.linkedin || ""} onChange={handleLinkedinChange} />
+                      </div>
+                      <div>
+                        <p className="font-light">Portfolio Website:</p>
+                        <input type="text" placeholder="Portfolio Website" className="mb-2 w-full border-2 rounded-md p-1" value={data?.website || ""} onChange={handleWebsiteChange} />
+                      </div>
                     </div>
                   </Collapse>
 

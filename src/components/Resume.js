@@ -1,11 +1,10 @@
 import { useSelector } from 'react-redux';
 import {AiTwotoneMail, AiFillPhone, AiFillLinkedin} from 'react-icons/ai';
 import {BsGlobe2} from 'react-icons/bs';
-import { Page, Text, View, Document, StyleSheet, PDFDownloadLink } from '@react-pdf/renderer';
-import html2canvas from 'html2canvas';
-import jsPDF from 'jspdf';
+import { forwardRef } from 'react';
 
-const Resume = () => {
+
+const Resume = forwardRef((props, ref) => {
 
     const data = useSelector(state => state.resumeData);
     const experiences = useSelector(state => state.experienceSlice);
@@ -14,35 +13,18 @@ const Resume = () => {
     const extra = useSelector(state => state.extraSlice);
     const skills = useSelector(state => state.skillsSlice);
 
-    console.log(extra);
-
-    const downloadPDF = () => {
-        html2canvas(document.querySelector('#content')).then((canvas) => {
-          const base64image = canvas.toDataURL('image/png');
-      
-          // Create a PDF with A4 dimensions
-          const pdf = new jsPDF('p', 'px', 'a4');
-      
-          // Add the image to the PDF with A4 dimensions
-          pdf.addImage(base64image, 'PNG', 0, 0, pdf.internal.pageSize.getWidth(), pdf.internal.pageSize.getHeight());
-      
-          // Save the PDF
-          pdf.save('resume.pdf');
-        });
-      };
+    document.title = `${data.firstname + data.lastname + "_" + "resume"}`
 
     return (
-        <div className="">
-            <div className="w-full flex justify-end">
-                <button id="btn-print" className="mt-5 mr-7 bg-green-600 rounded-md text-white p-2" onClick={downloadPDF}>Download PDF</button>
-            </div>
-            <div id="content" className="w-[700px] h-[800px] bg-white p-10 my-5 mx-7 shadow-[0_3px_10px_rgb(0,0,0,0.2)]">
+        <div>
+            <div className="w-[8.5in] h-[12in] bg-white my-5 mx-7 shadow-[0_3px_10px_rgb(0,0,0,0.2)]">
+                <div className="p-10" ref={ref}>
                 <div>
                     {/* Basic Info */}
                     <p className="text-3xl font-bold">{data.firstname + " " + data.lastname}</p>
-                    <div className="flex mt-2 text-sm items-center">
+                    <div className="flex mt-2 text-md items-center">
                         {data.email ? 
-                        <div className="flex items-center">
+                        <div className="flex items-center ">
                             <AiTwotoneMail/>
                             <p className="mr-3 ml-1">{data.email}</p>
                         </div> : null
@@ -68,7 +50,7 @@ const Resume = () => {
                         </div> : null
                         }
                     </div>
-                    <div className="text-sm">
+                    <div className="text-md">
                         <p className="mt-5">
                             {data.intro}
                         </p>
@@ -76,29 +58,28 @@ const Resume = () => {
 
                     {/* Skills */}
                     <div className="mt-10">
-                        {skills.length > 0 ? <p className="font-bold text-blue-500">SKILLS</p> : null}
+                        {skills.length > 0 ? <p className="font-bold text-md text-blue-500">SKILLS</p> : null}
                             <div className="mt-3 grid grid-cols-2 gap-2">
                                 {skills.map((e,index) => {
                                     return (                        
                                         <div key={index}>
-                                            <p className="font-bold"><span className=" mr-1">*</span> {e.skillTitle}</p>
+                                            <p className="text-md"><span className="mr-1 font-bold">*</span> {e.skillTitle}</p>
                                         </div>
                                     );
                                 })}
                             </div>
                     </div>
-                    
 
                     {/* Experience */}
                     <div className="mt-10">
-                        {experiences.length > 0 ? <p className="font-bold text-blue-500">EXPERIENCE</p> : null}
+                        {experiences.length > 0 ? <p className="font-bold text-md text-blue-500">EXPERIENCE</p> : null}
                             {experiences.map((e) => {
                                 return (                        
                                     <div className="mt-3">
-                                        <p className="font-bold">{e.companyName}</p>
-                                        <p>{e.location}</p>
-                                        <p>{e.date}</p>
-                                        <p className="mt-2">{e.description}</p>
+                                        <p className="font-bold text-md">{e.companyName}</p>
+                                        <p className="text-md">{e.location}</p>
+                                        <p className="text-md">{e.date}</p>
+                                        <p className="mt-2 test-md">{e.description}</p>
                                     </div>
                                 );
                             })}
@@ -110,10 +91,10 @@ const Resume = () => {
                         {education.map((e) => {
                             return (
                                 <div className="mt-3">
-                                    <p className="font-bold">{e.schoolName}</p>
-                                    <p>{e.location}</p>
-                                    <p>{e.date}</p>
-                                    <p className="mt-2">{e.grade}</p>
+                                    <p className="font-bold text-md">{e.schoolName}</p>
+                                    <p className="text-md">{e.location}</p>
+                                    <p className="text-md">{e.date}</p>
+                                    <p className="mt-2 text-md">{e.grade}</p>
                                 </div>
                             );
                         })}
@@ -125,9 +106,9 @@ const Resume = () => {
                         {project.map((e) => {
                             return (
                                 <div className="mt-3">
-                                    <p className="font-bold">{e.projectName}</p>
-                                    <a href={e.link} className="mt-2 underline cursor-pointer">Link</a>
-                                    <p className="mt-2">{e.description}</p>
+                                    <p className="font-bold text-md">{e.projectName}</p>
+                                    <a href={e.link} className="mt-2 underline cursor-pointer text-md">Link</a>
+                                    <p className="mt-2 text-md">{e.description}</p>
                                 </div>
                             );
                         })}
@@ -139,16 +120,17 @@ const Resume = () => {
                             return (
                                 <div className="mt-3">
                                     {extra.length > 0 ? <p className="font-bold text-blue-500">{e.sectionTitle}</p> : null}  
-                                    <p className="font-bold">{e.title}</p>
-                                    <p className="mt-2">{e.description}</p>
+                                    <p className="font-bold text-md">{e.title}</p>
+                                    <p className="mt-2 text-md">{e.description}</p>
                                 </div>
                             );
                         })}
                     </div>
                 </div>
+                </div>
             </div>
         </div>
     );
-};
+});
 
 export default Resume;
