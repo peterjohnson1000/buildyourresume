@@ -32,12 +32,12 @@ const App = () => {
 
   return (
         <div>
-          <div className="flex justify-between h-full items-center bg-[#f7f7f7]">
-            <div className="flex flex-col items-center h-screen w-screen">
+          <div className="flex justify-around items-start h-full w-full bg-[#f7f7f7] 2xl:flex-col">
+            <div className="flex flex-col items-center w-screen h-screen 2xl:h-fit py-10">
               
             {/* <p className="font-light">This app is still <span className="font-semibold">under development.</span></p>
             <p className="font-light mb-5">A new feature/bug fix is pushed to production <span className="font-semibold">everyday 🙃</span></p> */}
-            
+
               <InputData />
 
               {/* <DndContext collisionDetection={closestCenter} onDragEnd={handleDragEnd}>
@@ -53,10 +53,10 @@ const App = () => {
               <ExtraSection />
 
             </div>
-            <div>
-              <div className="w-full flex justify-end">
+            <div className="w-screen">
+              <div className="flex justify-start md:justify-center">
                 <ReactToPrint
-                  trigger={() => <button className="mt-5 mr-7 bg-green-600 rounded-md text-white p-2">Download</button>}
+                  trigger={() => <button className="mt-5 ml-5 bg-green-600 rounded-md text-white p-2 md:mr-0 md:my-1">Download</button>}
                   content={() => componentRef.current}
                 />
               </div>
