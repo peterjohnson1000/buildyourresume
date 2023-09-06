@@ -63,7 +63,7 @@ const SkillsInputSection = () => {
     console.log(extras.sectionTitle);
     
     return (
-        <div className="bg-white w-[600px] rounded-md p-5 my-2 shadow-[0_35px_60px_-15px_rgba(0,0,0,0.3)]">
+        <div className="bg-white w-[600px] rounded-md p-5 my-2 shadow-[0_35px_60px_-15px_rgba(0,0,0,0.3)] md:w-[300px]">
             <div onClick={toggleExpand} className="text-black flex items-center justify-between">
             <p className="">Skills Section</p>
             {expanded?<AiOutlineMinus className="text-2xl"/>:<AiOutlinePlus className="text-2xl"/>}

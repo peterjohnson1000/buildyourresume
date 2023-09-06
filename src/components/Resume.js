@@ -17,8 +17,8 @@ const Resume = forwardRef((props, ref) => {
 
     return (
         <div>
-            <div className="w-[8.5in] h-[12in] bg-white my-5 mx-7 shadow-[0_3px_10px_rgb(0,0,0,0.2)]">
-                <div className="p-10" ref={ref}>
+            <div className="max-h-[12in] max-w-[8.5in] bg-white shadow-[0_3px_10px_rgb(0,0,0,0.2)] md:transform scale-95">
+                <div className="p-10 md:p-5" ref={ref}>
                 <div>
                     {/* Basic Info */}
                     <p className="text-3xl font-bold">{data.firstname + " " + data.lastname}</p>

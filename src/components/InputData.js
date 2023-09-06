@@ -46,15 +46,15 @@ const InputData = () => {
 
     return (
         // mr-7
-        <div className="bg-white w-[600px] rounded-md p-5 my-2 shadow-[0_35px_60px_-15px_rgba(0,0,0,0.3)]">
+        <div className="bg-white w-[600px] rounded-md p-5 my-2 shadow-[0_35px_60px_-15px_rgba(0,0,0,0.3)] md:w-[300px]">
           <div onClick={toggleExpand} className="text-black flex items-center justify-between">
             <p className="">Basic Info</p>
             {expanded?<AiOutlineMinus className="text-2xl"/>:<AiOutlinePlus className="text-2xl"/>}
           </div>
             <Collapse isOpened={expanded}>
               <div className="border-t-2 mt-2"></div>
-              <div className="flex flex-col w-[300px] ml-10 pt-5">
-                <div className="flex">
+              <div className="flex flex-col w-[300px] ml-10 pt-5 md:ml-0 md:w-[250px]">
+                <div className="flex md:flex-col">
                   <div className="flex flex-col">
                     <p className="font-light">First Name:</p>
                     <input type="text" placeholder="firstname" className="mb-2 border-2 rounded-md p-1" value={data?.firstname || ""} onChange={handleFirstNameChange} />
@@ -66,8 +66,8 @@ const InputData = () => {
                   </div>
                 </div>
 
-                <div>
-                  <div>
+                <div className="">
+                  <div >
                     <p className="font-light">Email:</p>
                     <input type="text" placeholder="email" className="mb-2 border-2 rounded-md p-1" value={data?.email || ""} onChange={handleEmailChange} />
                   </div>
@@ -75,9 +75,9 @@ const InputData = () => {
                     <p className="font-light">Phone Number:</p>
                     <input type="number" placeholder="number" className="mb-2 border-2 rounded-md p-1" value={data?.number || ""} onChange={handleNumberChange} />
                   </div>
-                  <div>
+                  <div className="">
                     <p className="font-light">Introduction:</p>
-                    <textarea type="text" placeholder="intro" className="mb-2 border-2 rounded-md p-1 h-[150px] w-[500px]" value={data?.intro || ""} onChange={handleIntroChange} />
+                    <textarea type="text" placeholder="intro" className="mb-2 border-2 rounded-md p-1 h-[150px] w-[500px] md:w-[250px]" value={data?.intro || ""} onChange={handleIntroChange} />
                   </div>
                 </div>
 
