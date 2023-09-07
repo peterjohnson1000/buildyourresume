@@ -13,7 +13,7 @@ const Resume = forwardRef((props, ref) => {
     const extra = useSelector(state => state.extraSlice);
     const skills = useSelector(state => state.skillsSlice);
 
-    document.title = `${data.firstname + data.lastname + "_" + "resume"}`
+    // document.title = `${data.firstname + data.lastname + "_" + "resume"}`
 
     return (
         <div>
