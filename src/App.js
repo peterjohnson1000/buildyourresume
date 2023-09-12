@@ -31,12 +31,11 @@ const App = () => {
   let componentRef = useRef();
 
   return (
-        <div>
-          <div className="flex justify-around items-start h-full w-full bg-[#f7f7f7] 2xl:flex-col">
-            <div className="flex flex-col items-center w-screen h-screen 2xl:h-fit pb-10 pt-20 md:pt-10">
-              
-            {/* <p className="font-light">This app is still <span className="font-semibold">under development.</span></p>
-            <p className="font-light mb-5">A new feature/bug fix is pushed to production <span className="font-semibold">everyday 🙃</span></p> */}
+        <div className="flex justify-around py-5 items-start bg-[#f7f7f7] 2xl:flex-col 2xl:items-center">
+
+            <div className="mt-16 2xl:mt-10">
+              {/* <p className="font-light">This app is still <span className="font-semibold">under development.</span></p>
+              <p className="font-light mb-5">A new feature/bug fix is pushed to production <span className="font-semibold">everyday 🙃</span></p> */}
 
               <InputData />
 
@@ -51,18 +50,18 @@ const App = () => {
               <EducationInputData />
               <ProjectInput />
               <ExtraSection />
-
             </div>
-            <div className="w-screen flex flex-col items-center overflow-hidden">
-              <div className="w-[8.5in] pr-5 flex justify-end md:justify-center md:pr-0">
+
+            <div className="2xl:my-5">
+              <div className="flex justify-end mr-5 md:justify-center md:mr-0">
                 <ReactToPrint
-                  trigger={() => <button className="mt-5 bg-green-600 rounded-md text-white p-2 md:my-1">Download</button>}
+                  trigger={() => <button className="bg-green-600 rounded-md p-2 text-white">Download</button>}
                   content={() => componentRef.current}
                 />
               </div>
               <Resume ref={componentRef} />
             </div>
-          </div>
+
         </div>
     
   );
