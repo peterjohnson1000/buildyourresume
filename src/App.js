@@ -33,7 +33,7 @@ const App = () => {
   return (
         <div>
           <div className="flex justify-around items-start h-full w-full bg-[#f7f7f7] 2xl:flex-col">
-            <div className="flex flex-col items-center w-screen h-screen 2xl:h-fit py-10">
+            <div className="flex flex-col items-center w-screen h-screen 2xl:h-fit pb-10 pt-20 md:pt-10">
               
             {/* <p className="font-light">This app is still <span className="font-semibold">under development.</span></p>
             <p className="font-light mb-5">A new feature/bug fix is pushed to production <span className="font-semibold">everyday 🙃</span></p> */}
@@ -53,10 +53,10 @@ const App = () => {
               <ExtraSection />
 
             </div>
-            <div className="w-screen">
-              <div className="flex justify-start md:justify-center">
+            <div className="w-screen flex flex-col items-center overflow-hidden">
+              <div className="w-[8.5in] pr-5 flex justify-end md:justify-center md:pr-0">
                 <ReactToPrint
-                  trigger={() => <button className="mt-5 ml-5 bg-green-600 rounded-md text-white p-2 md:mr-0 md:my-1">Download</button>}
+                  trigger={() => <button className="mt-5 bg-green-600 rounded-md text-white p-2 md:my-1">Download</button>}
                   content={() => componentRef.current}
                 />
               </div>

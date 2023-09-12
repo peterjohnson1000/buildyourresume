@@ -17,7 +17,7 @@ const Resume = forwardRef((props, ref) => {
 
     return (
         <div>
-            <div className="max-h-[12in] max-w-[8.5in] bg-white shadow-[0_3px_10px_rgb(0,0,0,0.2)] md:transform scale-95">
+            <div className="max-h-[12in] max-w-[8.5in] h-[12in] bg-white shadow-[0_3px_10px_rgb(0,0,0,0.2)] md:transform scale-95">
                 <div className="p-10 md:p-5" ref={ref}>
                 <div>
                     {/* Basic Info */}
