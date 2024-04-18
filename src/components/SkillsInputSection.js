@@ -59,8 +59,8 @@ const SkillsInputSection = () => {
         setEditedSkillsSection([]);
     };
 
-    console.log(editedSkillsSection);
-    console.log(extras.sectionTitle);
+    // console.log(editedSkillsSection);
+    // console.log(extras.sectionTitle);
     
     return (
         <div className="bg-white w-[600px] rounded-md p-5 my-2 shadow-[0_35px_60px_-15px_rgba(0,0,0,0.3)] md:w-[300px]">

@@ -17,7 +17,8 @@ const extraSlice = createSlice({
       },
       removeData: (state, action) => {
         const index = action.payload;
-        state.splice(index, 1);
+        const indexToRemove = index.indexToRemove;
+        state.splice(indexToRemove, 1);
       },
     },
   });
